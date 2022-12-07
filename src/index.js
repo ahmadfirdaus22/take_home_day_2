@@ -2,12 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import HomePage from './HomePage';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import DetailTodo from './DetailTodo';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+
+        <Route path='/' element={<HomePage />} >
+          <Route path=':todoId' element={< DetailTodo />} />
+        </Route>
+
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
